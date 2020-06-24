@@ -6,4 +6,4 @@ Press SPACE to store the current color in the list where you can right-click and
 
 ![Screenshot of Digital Color Meter](https://raw.githubusercontent.com/nagilum/dcm/master/screenshot.png)
 
-[Download binary](https://github.com/nagilum/dcm/releases/tag/v1.2)
+[Download binary](https://github.com/actapia/dcm/releases/download/v1.2-noyce/dcm.exe)
