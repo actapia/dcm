@@ -4,6 +4,6 @@ Move your mouse about and get a zoomed preview and see the exact RGB color of th
 
 Press SPACE to store the current color in the list where you can right-click and copy from later.
 
-![Screenshot of Digital Color Meter](https://raw.githubusercontent.com/nagilum/dcm/master/screenshot.png)
+![Screenshot of Digital Color Meter](https://github.com/actapia/dcm/raw/master/screenshot.png)
 
 [Download binary](https://github.com/actapia/dcm/releases/download/v1.2-noyce/dcm.exe)
