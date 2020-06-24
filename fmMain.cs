@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -56,6 +57,12 @@ namespace dcm {
             int.TryParse(this.tbGreen.Text, out g);
             int.TryParse(this.tbBlue.Text, out b);
 
+            int xPos;
+            int yPos;
+
+            int.TryParse(this.tbX.Text, out xPos);
+            int.TryParse(this.tbY.Text, out yPos);
+
             var rgb =
                 r + "," +
                 g + "," +
@@ -67,13 +74,17 @@ namespace dcm {
                 g.ToString("X") +
                 b.ToString("X");
 
+            var pos =
+                xPos + "," + yPos;
+
             // Add a new list item with the current color.
             if (e.KeyCode == Keys.Space) {
                 var item = new ListViewItem(
                     new[] {
                         "",
                         rgb,
-                        hex
+                        hex,
+                        pos
                     });
 
                 var bitmap = new Bitmap(16, 16);
@@ -107,18 +118,20 @@ namespace dcm {
                 var list = string.Empty;
 
                 foreach (ListViewItem item in this.lvColors.Items) {
+                    List<string> columns = new List<string>();
                     if (this.cbRGB.Checked) {
-                        list += item.SubItems[1].Text;
-                    }
-
-                    if (this.cbRGB.Checked &&
-                        this.cbHEX.Checked) {
-                        list += "\t";
+                        columns.Add(item.SubItems[1].Text);
                     }
 
                     if (this.cbHEX.Checked) {
-                        list += item.SubItems[2].Text;
+                        columns.Add(item.SubItems[2].Text);
                     }
+
+                    if (this.cbPos.Checked) {
+                        columns.Add(item.SubItems[3].Text);
+                    }
+
+                    list += string.Join("\t", columns);
 
                     list += "\r\n";
                 }
@@ -198,6 +211,8 @@ namespace dcm {
             this.tbRed.Text = color.R.ToString(CultureInfo.InvariantCulture);
             this.tbGreen.Text = color.G.ToString(CultureInfo.InvariantCulture);
             this.tbBlue.Text = color.B.ToString(CultureInfo.InvariantCulture);
+            this.tbX.Text = mousePos.X.ToString(CultureInfo.InvariantCulture);
+            this.tbY.Text = mousePos.Y.ToString(CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -262,6 +277,16 @@ namespace dcm {
 
             var colors = this.lvColors.SelectedItems[0].SubItems[1].Text.Split(',');
             Clipboard.SetText(colors[2]);
+        }
+
+        private void lvColors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -57,6 +57,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbRGB = new System.Windows.Forms.CheckBox();
             this.cbHEX = new System.Windows.Forms.CheckBox();
+            this.tbX = new System.Windows.Forms.TextBox();
+            this.tbY = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.chPos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cbPos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             this.cmColorsPopup.SuspendLayout();
@@ -74,7 +80,7 @@
             // pbColor
             // 
             this.pbColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbColor.Location = new System.Drawing.Point(12, 150);
+            this.pbColor.Location = new System.Drawing.Point(12, 209);
             this.pbColor.Name = "pbColor";
             this.pbColor.Size = new System.Drawing.Size(46, 62);
             this.pbColor.TabIndex = 1;
@@ -83,7 +89,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 153);
+            this.label1.Location = new System.Drawing.Point(64, 212);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 13);
             this.label1.TabIndex = 2;
@@ -92,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 174);
+            this.label2.Location = new System.Drawing.Point(64, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 13);
             this.label2.TabIndex = 3;
@@ -101,7 +107,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 195);
+            this.label3.Location = new System.Drawing.Point(64, 254);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 4;
@@ -114,7 +120,7 @@
             // 
             // tbRed
             // 
-            this.tbRed.Location = new System.Drawing.Point(85, 150);
+            this.tbRed.Location = new System.Drawing.Point(85, 209);
             this.tbRed.Name = "tbRed";
             this.tbRed.ReadOnly = true;
             this.tbRed.Size = new System.Drawing.Size(59, 20);
@@ -122,7 +128,7 @@
             // 
             // tbGreen
             // 
-            this.tbGreen.Location = new System.Drawing.Point(85, 171);
+            this.tbGreen.Location = new System.Drawing.Point(85, 230);
             this.tbGreen.Name = "tbGreen";
             this.tbGreen.ReadOnly = true;
             this.tbGreen.Size = new System.Drawing.Size(59, 20);
@@ -130,7 +136,7 @@
             // 
             // tbBlue
             // 
-            this.tbBlue.Location = new System.Drawing.Point(85, 192);
+            this.tbBlue.Location = new System.Drawing.Point(85, 251);
             this.tbBlue.Name = "tbBlue";
             this.tbBlue.ReadOnly = true;
             this.tbBlue.Size = new System.Drawing.Size(59, 20);
@@ -143,17 +149,20 @@
             this.lvColors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chColor,
             this.chRGB,
-            this.chHEX});
+            this.chHEX,
+            this.chPos});
             this.lvColors.ContextMenuStrip = this.cmColorsPopup;
             this.lvColors.FullRowSelect = true;
+            this.lvColors.HideSelection = false;
             this.lvColors.LargeImageList = this.ilColors;
             this.lvColors.Location = new System.Drawing.Point(150, 12);
             this.lvColors.Name = "lvColors";
-            this.lvColors.Size = new System.Drawing.Size(254, 200);
+            this.lvColors.Size = new System.Drawing.Size(354, 200);
             this.lvColors.SmallImageList = this.ilColors;
             this.lvColors.TabIndex = 11;
             this.lvColors.UseCompatibleStateImageBehavior = false;
             this.lvColors.View = System.Windows.Forms.View.Details;
+            this.lvColors.SelectedIndexChanged += new System.EventHandler(this.lvColors_SelectedIndexChanged);
             // 
             // chColor
             // 
@@ -290,11 +299,68 @@
             this.cbHEX.Text = "HEX";
             this.cbHEX.UseVisualStyleBackColor = true;
             // 
+            // tbX
+            // 
+            this.tbX.Location = new System.Drawing.Point(85, 150);
+            this.tbX.Name = "tbX";
+            this.tbX.ReadOnly = true;
+            this.tbX.Size = new System.Drawing.Size(59, 20);
+            this.tbX.TabIndex = 18;
+            // 
+            // tbY
+            // 
+            this.tbY.Location = new System.Drawing.Point(85, 176);
+            this.tbY.Name = "tbY";
+            this.tbY.ReadOnly = true;
+            this.tbY.Size = new System.Drawing.Size(59, 20);
+            this.tbY.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Screen X";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(27, 179);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Screen Y";
+            // 
+            // chPos
+            // 
+            this.chPos.Text = "Position";
+            this.chPos.Width = 120;
+            // 
+            // cbPos
+            // 
+            this.cbPos.AutoSize = true;
+            this.cbPos.Checked = true;
+            this.cbPos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbPos.Location = new System.Drawing.Point(344, 264);
+            this.cbPos.Name = "cbPos";
+            this.cbPos.Size = new System.Drawing.Size(63, 17);
+            this.cbPos.TabIndex = 22;
+            this.cbPos.Text = "Position";
+            this.cbPos.UseVisualStyleBackColor = true;
+            this.cbPos.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 292);
+            this.ClientSize = new System.Drawing.Size(516, 292);
+            this.Controls.Add(this.cbPos);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbY);
+            this.Controls.Add(this.tbX);
             this.Controls.Add(this.cbHEX);
             this.Controls.Add(this.cbRGB);
             this.Controls.Add(this.label4);
@@ -353,5 +419,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbRGB;
         private System.Windows.Forms.CheckBox cbHEX;
+        private System.Windows.Forms.TextBox tbX;
+        private System.Windows.Forms.TextBox tbY;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ColumnHeader chPos;
+        private System.Windows.Forms.CheckBox cbPos;
     }
 }
