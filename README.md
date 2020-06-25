@@ -6,4 +6,4 @@ Press SPACE to store the current color in the list where you can right-click and
 
 ![Screenshot of Digital Color Meter](https://github.com/actapia/dcm/raw/master/screenshot.png)
 
-[Download binary](https://github.com/actapia/dcm/releases/download/v1.2-noyce/dcm.exe)
+[Download binary (Windows only)](https://github.com/actapia/dcm/releases/download/v1.2-noyce/dcm.exe)
